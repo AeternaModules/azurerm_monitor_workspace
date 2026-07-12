@@ -1,3 +1,7 @@
+output "monitor_workspaces_id" {
+  description = "Map of id values across all monitor_workspaces, keyed the same as var.monitor_workspaces"
+  value       = { for k, v in azurerm_monitor_workspace.monitor_workspaces : k => v.id }
+}
 output "monitor_workspaces_default_data_collection_endpoint_id" {
   description = "Map of default_data_collection_endpoint_id values across all monitor_workspaces, keyed the same as var.monitor_workspaces"
   value       = { for k, v in azurerm_monitor_workspace.monitor_workspaces : k => v.default_data_collection_endpoint_id }
